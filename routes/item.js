@@ -19,7 +19,7 @@ router.post('/items', function(req, res) {
 });
 
 router.put('/items/:id', function(req, res) {
-    Item.edit(req.params.id, req.body.name), function(item){
+    Item.edit(req.params.id, req.body.name, function(item){
         res.status(200).json(item);
     }, function(err) {
         res.status(400).json(err);
