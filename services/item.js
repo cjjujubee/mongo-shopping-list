@@ -26,8 +26,24 @@ exports.edit = function(id, name, callback, errback) {
     var query = {
         _id: id
     };
-    //var name = request.body.name;
-    Item.findOneAndUpdate(query, name, function(err, item) {
+    var update = {
+        'name': name
+    };
+    Item.findOneAndUpdate(query, update, function(err, item) {
+        if (err) {
+            errback(err);
+            return;
+        }
+        callback(item);
+    });
+};
+
+exports.delete = function(id, callback, errback) {
+    var query = {
+        _id: id
+    };
+    
+    Item.findOneAndRemove(query, function(err, item) {
         if (err) {
             errback(err);
             return;
