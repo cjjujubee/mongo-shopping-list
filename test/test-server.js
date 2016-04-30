@@ -115,7 +115,6 @@ describe('Shopping List', function() {
                         should.equal(err, null);
 
                         var list = docs;
-                        console.log('YOOOOO', list);
                         list.should.be.a('array');
                         list.should.have.length(0);
                         done();
